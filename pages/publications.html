@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Events | MDDB America</title>
+<title>Publications | MDDB America</title>
+<link rel="stylesheet" href="../assets/css/variables.css" />
+<link rel="stylesheet" href="../assets/css/main.css" />
+<link rel="stylesheet" href="../assets/css/pages.css" />
+<link rel="stylesheet" href="../assets/css/responsive.css" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; background: #f9f9fb; overflow-y: scroll; min-height: 100vh; display: flex; flex-direction: column; }
@@ -42,18 +46,15 @@ nav ul li a:hover, nav ul li a.active { color: #1a8cff; }
 .page-content { max-width: 1100px; margin: 0 auto; padding: 5rem 4rem; flex: 1; width: 100%; }
 .section-label { font-size: 0.8rem; font-weight: 700; color: #1a8cff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.6rem; }
 .section-title { font-size: 2rem; font-weight: 800; color: #0a3d6b; margin-bottom: 2rem; line-height: 1.2; }
-.events-list { display: flex; flex-direction: column; gap: 1.5rem; }
-.event-card { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: center; transition: transform 0.2s; }
-.event-card:hover { transform: translateY(-3px); }
-.event-date-box { background: #0a3d6b; color: #fff; border-radius: 10px; padding: 1rem 1.2rem; text-align: center; min-width: 70px; }
-.event-date-box .day { font-size: 1.8rem; font-weight: 800; line-height: 1; color: #fff; }
-.event-date-box .month { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #fff; opacity: 0.85; }
-.event-info h3 { font-size: 1.1rem; font-weight: 700; color: #0a3d6b; margin-bottom: 0.4rem; }
-.event-info p { font-size: 0.9rem; color: #666; line-height: 1.5; }
-.event-tag { display: inline-block; background: #e8f2ff; color: #1a8cff; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.5rem; }
-.event-action a { background: #1a8cff; color: #fff; padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.88rem; white-space: nowrap; transition: background 0.2s; }
-.event-action a:hover { background: #0a6cd4; }
-.past-events-section { margin-top: 4rem; }
+.pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.pub-card { background: #fff; border-radius: 12px; padding: 1.8rem 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-left: 4px solid #1a8cff; transition: transform 0.2s; }
+.pub-card:hover { transform: translateY(-3px); }
+.pub-card .pub-tag { display: inline-block; background: #e8f2ff; color: #1a8cff; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 20px; margin-bottom: 0.6rem; }
+.pub-card h3 { font-size: 1.05rem; font-weight: 700; color: #0a3d6b; margin-bottom: 0.4rem; line-height: 1.4; }
+.pub-card .pub-meta { font-size: 0.85rem; color: #888; margin-bottom: 0.6rem; }
+.pub-card p { font-size: 0.88rem; color: #666; line-height: 1.6; }
+.pub-card a { display: inline-block; margin-top: 0.8rem; color: #1a8cff; font-weight: 600; font-size: 0.88rem; text-decoration: none; }
+.pub-card a:hover { text-decoration: underline; }
 footer { background: #0a1628; color: #fff; padding: 3rem 4rem; margin-top: auto; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto 2rem; }
 a.footer-logo { display: inline-block; margin-bottom: 0.8rem; text-decoration: none; }
@@ -69,28 +70,28 @@ footer ul li a:hover { opacity: 1; }
 .footer-social a:hover { background: #1a8cff; color: #fff; }
 .footer-bottom { border-top: 1px solid #1e2d42; padding-top: 1.5rem; text-align: center; font-size: 0.82rem; color: #fff; opacity: 0.85; max-width: 1100px; margin: 0 auto; }
 @media (max-width: 1024px) { nav { padding: 1.2rem 2rem; } nav ul { gap: 1.2rem; } .page-content { padding: 4rem 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } footer { padding: 3rem 2rem; } }
-@media (max-width: 768px) { nav { padding: 1rem 1.5rem; } nav ul { display: none; } .hamburger { display: flex; } a.nav-logo img { height: 32px; } .page-hero { padding: 7rem 1.5rem 3rem; } .page-hero h1 { font-size: 2rem; } .event-card { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } footer { padding: 2.5rem 1.5rem; } }
+@media (max-width: 768px) { nav { padding: 1rem 1.5rem; } nav ul { display: none; } .hamburger { display: flex; } a.nav-logo img { height: 32px; } .page-hero { padding: 7rem 1.5rem 3rem; } .page-hero h1 { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } footer { padding: 2.5rem 1.5rem; } }
 @media (max-width: 480px) { nav { padding: 1rem; } a.nav-logo img { height: 28px; } }
 </style>
 </head>
 <body>
 <nav>
-<a href="index.html" class="nav-logo"><img src="images/site-logo.png" alt="MDDB America" /></a>
+<a href="../index.html" class="nav-logo"><img src="../assets/images/logos/site-logo.png" alt="MDDB America" /></a>
 <ul>
-<li><a href="index.html">Home</a></li>
+<li><a href="../index.html">Home</a></li>
 <li><a href="index.html#about">About</a></li>
 <li><a href="index.html#goals">Goals</a></li>
 <li><a href="partners.html">Partners</a></li>
 <li><a href="news.html">News</a></li>
-<li><a href="events.html" class="active">Events</a></li>
-<li><a href="publications.html">Publications</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="publications.html" class="active">Publications</a></li>
 <li><a href="community.html">Community</a></li>
-<li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+<li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
 </ul>
 <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-<a href="index.html">Home</a>
+<a href="../index.html">Home</a>
 <a href="index.html#about">About</a>
 <a href="index.html#goals">Goals</a>
 <a href="partners.html">Partners</a>
@@ -98,50 +99,31 @@ footer ul li a:hover { opacity: 1; }
 <a href="events.html">Events</a>
 <a href="publications.html">Publications</a>
 <a href="community.html">Community</a>
-<a href="index.html#contact" class="nav-cta">Get in Touch</a>
+<a href="../index.html#contact" class="nav-cta">Get in Touch</a>
 </div>
 <div class="page-hero">
-<h1>Events & Webinars</h1>
-<p>Join us for workshops, conferences, and webinars advancing molecular dynamics data science.</p>
+<h1>Publications</h1>
+<p>Peer-reviewed research and articles produced by or in collaboration with the MDDB America initiative.</p>
 </div>
 <div class="page-content">
 <div class="scroll-reveal">
-<div class="section-label">Upcoming</div>
-<h2 class="section-title">Upcoming Events</h2>
+<div class="section-label">Research</div>
+<h2 class="section-title">All Publications</h2>
 </div>
-<div class="events-list">
-<div class="event-card scroll-reveal stagger-1">
-<div class="event-date-box"><div class="day">10</div><div class="month">Mar</div></div>
-<div class="event-info">
-<div class="event-tag">Workshop</div>
-<h3>Multi-scale Simulations of Protein Folding: The Importance of Data</h3>
-<p>Organised by the MDDB America Consortium. Open to all researchers in the field.</p>
-</div>
-<div class="event-action"><a href="#">Register →</a></div>
-</div>
-</div>
-<div class="past-events-section">
-<div class="scroll-reveal">
-<div class="section-label">Past Events</div>
-<h2 class="section-title">Past Events</h2>
-</div>
-<div class="events-list">
-<div class="event-card scroll-reveal stagger-1">
-<div class="event-date-box"><div class="day">20</div><div class="month">Feb</div></div>
-<div class="event-info">
-<div class="event-tag">Conference</div>
-<h3>MDDB America Inaugural Conference</h3>
-<p>Our inaugural conference brought together leading researchers from across the Americas.</p>
-</div>
-<div class="event-action"><a href="#">View Recap →</a></div>
-</div>
+<div class="pub-list">
+<div class="pub-card scroll-reveal stagger-1">
+<div class="pub-tag">Journal Article</div>
+<h3>FAIR Principles in Biomolecular Simulations</h3>
+<div class="pub-meta">Nature Methods · January 15, 2026</div>
+<p>A landmark article outlining how FAIR data principles can be applied to molecular dynamics simulation data to improve reproducibility and reuse across the research community.</p>
+<a href="https://doi.org/10.1038/s41592-025-02635-0" target="_blank" rel="noopener">Read Paper →</a>
 </div>
 </div>
 </div>
 <footer>
 <div class="footer-grid">
 <div class="footer-brand">
-<a href="index.html" class="footer-logo"><img src="images/site-logo.png" alt="MDDB America" /></a>
+<a href="../index.html" class="footer-logo"><img src="../assets/images/logos/site-logo.png" alt="MDDB America" /></a>
 <p>A unified, FAIR-compliant repository for molecular dynamics biosimulation data across the Americas.</p>
 </div>
 <div><h4>Explore</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#goals">Goals & Vision</a></li><li><a href="partners.html">Partners</a></li><li><a href="publications.html">Publications</a></li></ul></div>
@@ -164,25 +146,6 @@ footer ul li a:hover { opacity: 1; }
 </div>
 <div class="footer-bottom">© 2026 MDDB America | All Rights Reserved</div>
 </footer>
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
-// SCROLL REVEAL ANIMATION
-const scrollRevealObserver = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('revealed');
-}
-});
-}, {
-threshold: 0.15,
-rootMargin: '0px 0px -50px 0px'
-});
-document.querySelectorAll('.scroll-reveal').forEach(el => {
-scrollRevealObserver.observe(el);
-});
-</script>
+<script src="../assets/js/common.js"></script>
 </body>
 </html>
